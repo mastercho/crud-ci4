@@ -135,11 +135,19 @@ class UsersController extends Controller {
         }
     }
 
-    public function delete($id) {
-        $model = new UserModel();
-        $user = $model->find($id);
-        $model->delete($id);
-        return redirect()->to('/users')->with('success', 'The user ' . $user['username'] . ' has been deleted.');
+public function delete($id)
+{
+    $model = new UserModel();
+    $user = $model->find($id);
+
+    if (!$user) {
+        return $this->response->setStatusCode(404);
     }
+
+    $model->delete($id);
+
+    return $this->response->setJSON(['status' => 'success']);
+}
+
 
 }

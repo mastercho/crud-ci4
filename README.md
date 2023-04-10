@@ -23,3 +23,5 @@ Run migrations from your console using this command
 You can now access the CRUD project by opening your web browser and navigating to the project's URL (e.g. http://localhost/crud/users). You should be able to view, add, edit, and delete users and their credentials using the Bootstrap 4 UI and DataTables for pagination and sorting.
 
 Congratulations, you've successfully installed the CRUD project for adding users management in CodeIgniter 4!
+
+**NOTE:** In this Branch we use SmartAdmin Template from https://github.com/andreipa/smartadmin-html-full, here Add User is in tricky place, you will find in in bottom button where you can find other options as Scroll to top, Print, and Add User options!
