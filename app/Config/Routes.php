@@ -30,6 +30,15 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->group('users', function ($routes) {
+    $routes->get('/', 'UsersController::index');
+    $routes->get('get', 'UsersController::get');
+    $routes->get('users/create', 'UsersController::create');
+    $routes->post('store', 'UsersController::store');
+    $routes->post('edit/(:num)', 'UsersController::edit/$1');
+    $routes->post('update/(:num)', 'UsersController::update/$1');
+    $routes->post('delete/(:num)', 'UsersController::delete/$1');
+});
 
 /*
  * --------------------------------------------------------------------
@@ -47,3 +56,4 @@ $routes->get('/', 'Home::index');
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
