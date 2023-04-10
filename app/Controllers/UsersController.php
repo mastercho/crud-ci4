@@ -71,6 +71,7 @@ class UsersController extends Controller {
                     'mobile' => $this->request->getPost('mobile'),
                     'username' => $this->request->getPost('username'),
                     'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+                    'created_at' => date('Y-m-d H:i:s'),
                 ];
                 $model->insert($data);
 
@@ -83,7 +84,6 @@ class UsersController extends Controller {
             }
         }
     }
-
 
     public function update($id) {
         $model = new UserModel();
@@ -118,6 +118,7 @@ class UsersController extends Controller {
                     'email' => $this->request->getPost('email'),
                     'mobile' => $this->request->getPost('mobile'),
                     'username' => $this->request->getPost('username'),
+                    'updated_at' => date('Y-m-d H:i:s'),
                 ];
                 if (!empty($this->request->getPost('password'))) {
                     $data['password'] = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
